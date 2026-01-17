@@ -5,40 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I.T. GURUZ | The $150/mo Technical Safety Net</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Smooth scrolling logic */
-        html {
-            scroll-behavior: smooth !important;
-        }
+   <style>
+    html {
+        scroll-behavior: smooth !important;
+    }
 
-        .tech-header {
-            position: relative;
-            height: 350px;
-            background: radial-gradient(circle at center, #0d0d1a 0%, #050508 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            color: #fff;
-            font-family: 'Courier New', Courier, monospace;
-        }
+    /* Modern Cyberpunk Palette */
+    :root {
+        --magenta: #ff00ff;
+        --deep-purple: #7000ff;
+        --cyber-black: #050508;
+        --eye-safe-white: #e0e0ff;
+    }
 
-        .grid-overlay {
-            position: absolute;
-            inset: 0;
-            background-image: linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-            perspective: 500px;
-            transform: rotateX(60deg);
-            transform-origin: top;
-        }
+    .tech-header {
+        position: relative;
+        height: 45vh; /* Responsive height for mobile */
+        background: radial-gradient(circle at center, #1a001a 0%, var(--cyber-black) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-bottom: 2px solid var(--deep-purple);
+    }
 
-        .glow-text {
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.5);
-            letter-spacing: 0.5em;
-        }
-    </style>
+    /* Animated Grid Logic */
+    .grid-overlay {
+        position: absolute;
+        inset: -100% 0;
+        background-image: 
+            linear-gradient(var(--magenta) 1px, transparent 1px),
+            linear-gradient(90deg, var(--magenta) 1px, transparent 1px);
+        background-size: 45px 45px;
+        perspective: 1000px;
+        transform: rotateX(60deg);
+        transform-origin: center;
+        opacity: 0.15;
+        animation: grid-flow 20s linear infinite;
+    }
+
+    @keyframes grid-flow {
+        from { transform: rotateX(60deg) translateY(0); }
+        to { transform: rotateX(60deg) translateY(45px); }
+    }
+
+    /* The "Pop" - Magenta Glow Pulse */
+    .glow-text {
+        color: var(--eye-safe-white);
+        text-shadow: 
+            0 0 10px var(--magenta),
+            0 0 20px var(--deep-purple);
+        letter-spacing: 0.3em;
+        animation: text-pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes text-pulse {
+        0%, 100% { filter: brightness(100%) blur(0px); }
+        50% { filter: brightness(130%) blur(0.5px); text-shadow: 0 0 30px var(--magenta); }
+    }
+
+    /* Mobile UX adjustments */
+    @media (max-width: 768px) {
+        .glow-text { font-size: 2.5rem; letter-spacing: 0.2em; }
+        .tech-header { height: 35vh; }
+    }
+</style>
 </head>
 <body class="bg-slate-950 text-slate-200 font-sans">
 
