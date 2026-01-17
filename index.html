@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT GURUZ | The $150/mo Technical Safety Net</title>
+    <title>I.T. GURUZ | The $150/mo Technical Safety Net</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* --- CYBER GURU BANNER STYLES --- */
@@ -35,18 +35,19 @@
         }
 
         .logo-text {
-            font-size: 5rem;
+            font-size: 4.5rem;
             font-weight: 900;
-            text-transform: lowercase;
+            text-transform: uppercase; /* FORCED CAPITALS */
+            letter-spacing: 8px;      /* Spaced out for tech look */
             position: relative;
             color: #fff;
-            text-shadow: 0 0 10px #00d4ff;
+            text-shadow: 0 0 15px #00d4ff;
             z-index: 10;
         }
 
-        /* Glitch Effect */
+        /* Glitch Effect - Updated to match Uppercase */
         .logo-text::before, .logo-text::after {
-            content: 'I.T. GURUZ';
+            content: 'I.T. GURUZ'; 
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.8;
         }
         .logo-text::before { color: #ff00ff; z-index: -1; animation: glitch-anim 2s infinite linear alternate-reverse; }
@@ -64,15 +65,15 @@
         }
 
         .tagline-banner {
-            font-size: 1.2rem; color: #00d4ff; text-align: center; z-index: 10;
-            margin-top: -5px; letter-spacing: 4px; font-weight: bold; text-transform: uppercase;
+            font-size: 1rem; color: #00d4ff; text-align: center; z-index: 10;
+            margin-top: 5px; letter-spacing: 5px; font-weight: bold; text-transform: uppercase;
         }
 
-        /* --- MOBILE RESPONSIVE FIXES --- */
+        /* --- UNIFORMITY & MOBILE FIXES --- */
         @media (max-width: 768px) {
-            .tech-header { height: 220px; }
-            .logo-text { font-size: 3rem; }
-            .tagline-banner { font-size: 0.8rem; letter-spacing: 2px; }
+            .tech-header { height: 200px; }
+            .logo-text { font-size: 2.2rem; letter-spacing: 3px; }
+            .tagline-banner { font-size: 0.7rem; letter-spacing: 2px; }
             .proactive-blue { font-size: 1.5rem !important; }
         }
 
@@ -93,8 +94,8 @@
     </header>
 
     <section class="py-20 px-6 text-center bg-gradient-to-b from-slate-800 to-slate-900">
-        <h2 class="text-5xl font-bold mb-4">IT GURUZ</h2>
-        <p class="text-xl text-blue-400 mb-8 uppercase tracking-widest font-semibold">The Technical Safety Net</p>
+        <h2 class="text-5xl font-extrabold mb-4 tracking-tighter">I.T. GURUZ</h2>
+        <p class="text-xl text-blue-400 mb-12 uppercase tracking-[0.3em] font-semibold">The Technical Safety Net</p>
         
         <div class="max-w-3xl mx-auto mb-10">
             <p class="proactive-blue text-3xl font-bold mb-4">
@@ -107,45 +108,45 @@
         </div>
 
         <div class="flex justify-center gap-4">
-            <a href="#join" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg shadow-blue-900/20">Secure a Founding Spot</a>
+            <a href="#join" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg shadow-blue-900/40">Secure a Founding Spot</a>
         </div>
     </section>
 
     <section class="py-20 px-6 bg-slate-800">
         <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
-            <div class="p-6 bg-slate-700 rounded-xl border border-slate-600">
-                <h3 class="text-blue-400 font-bold mb-2">SECURITY</h3>
-                <p class="text-sm text-slate-300">Weekly security patches and firewall hardening to keep the "Clients from Hell" (and hackers) out.</p>
+            <div class="p-8 bg-slate-700 rounded-xl border-l-4 border-blue-500 shadow-xl">
+                <h3 class="text-blue-400 font-bold mb-3 tracking-widest uppercase">Security</h3>
+                <p class="text-sm text-slate-300 leading-relaxed">Weekly security patches and firewall hardening to keep the "Clients from Hell" (and hackers) out.</p>
             </div>
-            <div class="p-6 bg-slate-700 rounded-xl border border-slate-600">
-                <h3 class="text-blue-400 font-bold mb-2">STABILITY</h3>
-                <p class="text-sm text-slate-300">Daily backup heartbeats and Sunday 2 AM system resets for 100% uptime.</p>
+            <div class="p-8 bg-slate-700 rounded-xl border-l-4 border-blue-500 shadow-xl">
+                <h3 class="text-blue-400 font-bold mb-3 tracking-widest uppercase">Stability</h3>
+                <p class="text-sm text-slate-300 leading-relaxed">Daily backup heartbeats and Sunday 2 AM system resets for 100% uptime.</p>
             </div>
-            <div class="p-6 bg-slate-700 rounded-xl border border-slate-600">
-                <h3 class="text-blue-400 font-bold mb-2">AUTOMATION</h3>
-                <p class="text-sm text-slate-300">We monitor your lead flow and CRM connections so you never lose a customer to a broken form.</p>
+            <div class="p-8 bg-slate-700 rounded-xl border-l-4 border-blue-500 shadow-xl">
+                <h3 class="text-blue-400 font-bold mb-3 tracking-widest uppercase">Automation</h3>
+                <p class="text-sm text-slate-300 leading-relaxed">We monitor your lead flow and CRM connections so you never lose a customer to a broken form.</p>
             </div>
         </div>
     </section>
 
     <section id="join" class="py-20 px-6 text-center">
-        <h2 class="text-3xl font-bold mb-10">Limited Founding Enrollment</h2>
-        <div class="max-w-sm mx-auto p-10 bg-blue-600 rounded-2xl shadow-2xl">
-            <p class="text-white uppercase font-bold tracking-widest mb-2">Founding 20 Rate</p>
+        <h2 class="text-3xl font-bold mb-10 tracking-wide uppercase">Limited Founding Enrollment</h2>
+        <div class="max-w-sm mx-auto p-10 bg-blue-600 rounded-2xl shadow-2xl ring-4 ring-blue-500/50">
+            <p class="text-white uppercase font-black tracking-widest mb-2">Founding 20 Rate</p>
             <div class="text-6xl font-black mb-4">$150<span class="text-xl font-normal">/mo</span></div>
-            <ul class="text-left text-sm mb-8 space-y-2 opacity-90">
+            <ul class="text-left text-sm mb-8 space-y-3 opacity-95 font-medium">
                 <li>✅ 10-Minute Remote Health Audit</li>
                 <li>✅ Weekly Infrastructure Maintenance</li>
                 <li>✅ Priority Emergency Support</li>
                 <li>✅ Monthly Health Reports</li>
             </ul>
-            <a href="YOUR_STRIPE_LINK_HERE" class="block w-full bg-white text-blue-600 py-4 rounded-lg font-bold hover:bg-slate-100 transition">Get Started</a>
+            <a href="YOUR_STRIPE_LINK_HERE" class="block w-full bg-white text-blue-600 py-4 rounded-lg font-black hover:bg-slate-100 transition transform hover:scale-105">Get Started</a>
         </div>
-        <p class="mt-8 text-slate-500 text-sm">Strictly limited to 20 Huntington Beach businesses.</p>
+        <p class="mt-8 text-slate-500 text-sm font-semibold tracking-wide uppercase">Strictly limited to 20 Huntington Beach businesses.</p>
     </section>
 
-    <footer class="py-10 text-center text-slate-600 text-xs">
-        &copy; 2026 ITGURUZ LLC WWW.ITGURUZ.COM | Ayurell Systems | Huntington Beach, CA
+    <footer class="py-12 text-center text-slate-600 text-[10px] tracking-[0.2em] uppercase">
+        &copy; 2026 I.T. GURUZ | Ayurell Systems | Huntington Beach, CA
     </footer>
 
 </body>
