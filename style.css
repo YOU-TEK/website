@@ -1,0 +1,90 @@
+<style>
+  .tech-header {
+    position: relative;
+    height: 350px;
+    background: radial-gradient(circle at center, #0d0d1a 0%, #050508 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace; /* Techier font */
+  }
+
+  /* Animated Grid Floor */
+  .grid-overlay {
+    position: absolute;
+    bottom: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: 
+      linear-gradient(to right, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    transform: perspective(500px) rotateX(65deg);
+    animation: moveGrid 8s linear infinite;
+  }
+
+  @keyframes moveGrid {
+    0% { transform: perspective(500px) rotateX(65deg) translateY(0); }
+    100% { transform: perspective(500px) rotateX(65deg) translateY(40px); }
+  }
+
+  /* Glitch Text Core */
+  .logo-text {
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: lowercase;
+    position: relative;
+    color: #fff;
+    text-shadow: 0 0 10px #00d4ff;
+    z-index: 10;
+    animation: glitch 3s infinite;
+  }
+
+  .logo-text::before, .logo-text::after {
+    content: 'itguruz';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+  }
+
+  .logo-text::before {
+    color: #ff00ff;
+    z-index: -1;
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+  }
+
+  .logo-text::after {
+    color: #00ffff;
+    z-index: -2;
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-anim {
+    0% { clip: rect(20px, 9999px, 10px, 0); transform: translate(-2px, -2px); }
+    20% { clip: rect(80px, 9999px, 5px, 0); transform: translate(2px, 2px); }
+    100% { clip: rect(10px, 9999px, 90px, 0); transform: translate(-1px, 1px); }
+  }
+
+  @keyframes glitch-anim-2 {
+    0% { clip: rect(10px, 9999px, 85px, 0); transform: translate(2px, 2px); }
+    50% { clip: rect(50px, 9999px, 20px, 0); transform: translate(-2px, -2px); }
+    100% { clip: rect(30px, 9999px, 60px, 0); transform: translate(1px, -1px); }
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+    color: #00d4ff;
+    text-align: center;
+    z-index: 10;
+    margin-top: -5px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+</style>
