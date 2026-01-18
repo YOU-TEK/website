@@ -3,190 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I.T. GURUZ | The $150/mo Technical Safety Net</title>
+    <title>I.T. GURUZ | Initializing...</title>
     <script src="https://cdn.tailwindcss.com"></script>
-   <style>
-    html {
-        scroll-behavior: smooth !important;
-    }
-
-    /* Modern Cyberpunk Palette */
-    :root {
-        --magenta: #ff00ff;
-        --deep-purple: #7000ff;
-        --cyber-black: #050508;
-        --eye-safe-white: #e0e0ff;
-    }
-
-    .tech-header {
-        position: relative;
-        height: 45vh; /* Responsive height for mobile */
-        background: radial-gradient(circle at center, #1a001a 0%, var(--cyber-black) 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        border-bottom: 2px solid var(--deep-purple);
-    }
-
-    /* Animated Grid Logic */
-    .grid-overlay {
-        position: absolute;
-        inset: -100% 0;
-        background-image: 
-            linear-gradient(var(--magenta) 1px, transparent 1px),
-            linear-gradient(90deg, var(--magenta) 1px, transparent 1px);
-        background-size: 45px 45px;
-        perspective: 1000px;
-        transform: rotateX(60deg);
-        transform-origin: center;
-        opacity: 0.15;
-        animation: grid-flow 20s linear infinite;
-    }
-
-    @keyframes grid-flow {
-        from { transform: rotateX(60deg) translateY(0); }
-        to { transform: rotateX(60deg) translateY(45px); }
-    }
-
-    /* The "Pop" - Magenta Glow Pulse */
-    .glow-text {
-        color: var(--eye-safe-white);
-        text-shadow: 
-            0 0 10px var(--magenta),
-            0 0 20px var(--deep-purple);
-        letter-spacing: 0.3em;
-        animation: text-pulse 4s ease-in-out infinite;
-    }
-
-    @keyframes text-pulse {
-        0%, 100% { filter: brightness(100%) blur(0px); }
-        50% { filter: brightness(130%) blur(0.5px); text-shadow: 0 0 30px var(--magenta); }
-    }
-
-    /* Mobile UX adjustments */
-    @media (max-width: 768px) {
-        .glow-text { font-size: 2.5rem; letter-spacing: 0.2em; }
-        .tech-header { height: 35vh; }
-    }
-<canvas id="favicon-canvas" width="32" height="32" style="display:none;"></canvas>
-<script>
-    (function() {
-        const canvas = document.getElementById('favicon-canvas');
-        const ctx = canvas.getContext('2d');
-        const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-        link.type = 'image/x-icon';
-        link.rel = 'shortcut icon';
-        document.getElementsByTagName('head')[0].appendChild(link);
-
-        // 1. Favicon "G" Animation Logic
-        let hue = 300; 
-        function animateG() {
-            ctx.clearRect(0, 0, 32, 32);
-            const color = `hsl(${hue}, 100%, 60%)`;
-            ctx.fillStyle = color;
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = color;
-            ctx.font = "bold 24px monospace";
-            ctx.textAlign = "center";
-            ctx.textBaseline = "middle";
-            ctx.fillText("G", 16, 16);
-            link.href = canvas.toDataURL('image/png');
-            hue = (hue + 1) % 360;
-            setTimeout(animateG, 150);
+    <style>
+        html {
+            scroll-behavior: smooth !important;
         }
 
-        // 2. Scrolling Title "Banner" Logic
-        let titleText = " I.T. GURUZ - SECURITY PROTOCOL ACTIVE - ";
-        function scrollTitle() {
-            document.title = titleText;
-            // Move first character to the end to create "Right to Left" scroll
-            titleText = titleText.substring(1) + titleText.substring(0, 1);
-            setTimeout(scrollTitle, 200); // Adjust speed here (higher = slower)
+        /* Modern Cyberpunk Palette */
+        :root {
+            --magenta: #ff00ff;
+            --deep-purple: #7000ff;
+            --cyber-black: #050508;
+            --eye-safe-white: #e0e0ff;
         }
 
-        // Initialize both
-        animateG();
-        scrollTitle();
-    }
-</script>
-  
-</head>
-<body class="bg-slate-950 text-slate-200 font-sans">
+        body {
+            background-color: var(--cyber-black);
+            color: var(--eye-safe-white);
+        }
 
-    <header class="tech-header border-b border-blue-900/50">
-        <div class="grid-overlay"></div>
-        <div class="relative z-10 text-center">
-            <h1 class="text-6xl font-black glow-text mb-4 uppercase">I.T. GURUZ</h1>
-            <p class="text-cyan-500 font-mono tracking-widest text-sm uppercase">The Original Cyber Guru</p>
-        </div>
-    </header>
+        .tech-header {
+            position: relative;
+            height: 45vh;
+            background: radial-gradient(circle at center, #1a001a 0%, var(--cyber-black) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 2px solid var(--deep-purple);
+        }
 
-    <main class="max-w-4xl mx-auto py-20 px-6 text-center">
-        <h2 class="text-4xl font-bold mb-4 uppercase tracking-tight">The Technical Safety Net</h2>
-        <p class="text-2xl mb-12 text-slate-400">
-            Proactive maintenance for <span class="text-cyan-400 font-bold">Huntington Beach</span> businesses.
-        </p>
+        /* Animated Grid Logic */
+        .grid-overlay {
+            position: absolute;
+            inset: -100% 0;
+            background-image: 
+                linear-gradient(var(--magenta) 1px, transparent 1px),
+                linear-gradient(90deg, var(--magenta) 1px, transparent 1px);
+            background-size: 45px 45px;
+            perspective: 1000px;
+            transform: rotateX(60deg);
+            transform-origin: center;
+            opacity: 0.15;
+            animation: grid-flow 20s linear infinite;
+        }
 
-        <div class="grid md:grid-cols-3 gap-8 mb-16 text-left">
-            <div class="p-6 bg-slate-900/50 rounded-xl border border-slate-800">
-                <div class="text-blue-500 mb-2 font-bold italic">PROACTIVE</div>
-                <p class="text-sm text-slate-500 font-mono">Issues identified before they impact your workflow.</p>
-            </div>
-            <div class="p-6 bg-slate-900/50 rounded-xl border border-slate-800">
-                <div class="text-blue-500 mb-2 font-bold italic">STABLE</div>
-                <p class="text-sm text-slate-500 font-mono">Zero downtime infrastructure management.</p>
-            </div>
-            <div class="p-6 bg-slate-900/50 rounded-xl border border-slate-800">
-                <div class="text-blue-500 mb-2 font-bold italic">$150/MO</div>
-                <p class="text-sm text-slate-500 font-mono">Flat-rate security for the Founding 20 members.</p>
-            </div>
-        </div>
+        @keyframes grid-flow {
+            from { transform: rotateX(60deg) translateY(0); }
+            to { transform: rotateX(60deg) translateY(45px); }
+        }
 
-        <a href="#join" class="inline-block bg-blue-600 hover:bg-blue-500 text-white px-12 py-5 rounded-lg font-black uppercase tracking-widest transition-all shadow-xl shadow-blue-900/40">
-            Secure a Founding Spot
-        </a>
-    </main>
+        /* The "Pop" - Magenta Glow Pulse */
+        .glow-text {
+            color: var(--eye-safe-white);
+            text-shadow: 
+                0 0 10px var(--magenta),
+                0 0 20px var(--deep-purple);
+            letter-spacing: 0.3em;
+            animation: text-pulse 4s ease-in-out infinite;
+        }
 
-    <section id="join" class="py-24 px-6 bg-slate-900 border-t border-blue-900/30">
-        <div class="max-w-lg mx-auto">
-            <h2 class="text-3xl font-bold mb-2 text-center text-cyan-400 uppercase tracking-widest">Client Intake Terminal</h2>
-            <p class="text-center text-slate-500 text-xs mb-10 uppercase font-mono tracking-tighter">Initializing Secure Transmission Protocol</p>
-            
-            <form action="https://formspree.io/f/maqqqkna" method="POST" class="space-y-6">
-                
-                <input type="hidden" name="_next" value="https://itguruz.com/success.html">
-                
-                <input type="text" name="_gotcha" style="display:none">
+        @keyframes text-pulse {
+            0%, 100% { filter: brightness(100%) blur(0px); }
+            50% { filter: brightness(130%) blur(0.5px); text-shadow: 0 0 30px var(--magenta); }
+        }
 
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-slate-500">Business Name</label>
-                    <input type="text" name="company" required placeholder="Enter Company Name" 
-                           class="w-full p-4 bg-slate-950 border border-slate-800 rounded-lg focus:border-cyan-500 text-white outline-none transition-colors">
-                </div>
+        /* Mobile UX adjustments */
+        @media (max-width: 768px) {
+            .glow-text { font-size: 2.5rem; letter-spacing: 0.2em; }
+            .tech-header { height: 35vh; }
+        }
+    </style>
 
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-slate-500">Your Email</label>
-                    <input type="email" name="email" required placeholder="name@business.com" 
-                           class="w-full p-4 bg-slate-950 border border-slate-800 rounded-lg focus:border-cyan-500 text-white outline-none transition-colors">
-                </div>
+    <canvas id="favicon-canvas" width="32" height="32" style="display:none;"></canvas>
+    <script>
+        (function() {
+            window.onload = function() {
+                const canvas = document.getElementById('favicon-canvas');
+                const ctx = canvas.getContext('2d');
+                const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+                link.type = 'image/x-icon';
+                link.rel = 'shortcut icon';
+                document.getElementsByTagName('head')[0].appendChild(link);
 
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-slate-500">Infrastructure Message</label>
-                    <textarea name="message" rows="4" required placeholder="Briefly describe your current tech issues..." 
-                              class="w-full p-4 bg-slate-950 border border-slate-800 rounded-lg focus:border-cyan-500 text-white outline-none transition-colors"></textarea>
-                </div>
+                // 1. Favicon "G" Animation Logic
+                let hue = 300; 
+                function animateG() {
+                    ctx.clearRect(0, 0, 32, 32);
+                    const color = `hsl(${hue}, 100%, 60%)`;
+                    ctx.fillStyle = color;
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = color;
+                    ctx.font = "bold 24px monospace";
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    ctx.fillText("G", 16, 16);
+                    link.href = canvas.toDataURL('image/png');
+                    hue = (hue + 1) % 360;
+                    setTimeout(animateG, 150);
+                }
 
-                <button type="submit" class="w-full py-5 bg-cyan-600 hover:bg-cyan-500 text-white font-black uppercase tracking-widest rounded-lg transition-all shadow-lg shadow-cyan-900/20 active:scale-95">
-                    Initialize Onboarding
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <footer class="py-12 text-center text-slate-700 text-[10px] tracking-[0.3em] uppercase border-t border-slate-900">
-        &copy; 2026 I.T. GURUZ | Systems Engineered by Ayurell
-    </footer>
-
-</body>
-</html>
+                // 2. Scrolling Title "Banner" Logic
+                let titleText = " I.T. GURUZ - SECURITY PROTOCOL ACTIVE - ";
+                function scrollTitle() {
+                    document.title = titleText;
+                    titleText = titleText.substring(1) + titleText.substring(0
