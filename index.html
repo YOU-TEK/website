@@ -3,26 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I.T. GURUZ | Initializing...</title>
+    <title>I.T. GURUZ | Systems Active</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        html {
-            scroll-behavior: smooth !important;
-        }
-
-        /* Modern Cyberpunk Palette */
+        html { scroll-behavior: smooth !important; }
         :root {
             --magenta: #ff00ff;
             --deep-purple: #7000ff;
             --cyber-black: #050508;
             --eye-safe-white: #e0e0ff;
         }
-
-        body {
-            background-color: var(--cyber-black);
-            color: var(--eye-safe-white);
-            overflow-x: hidden;
-        }
+        body { background-color: var(--cyber-black); color: var(--eye-safe-white); overflow-x: hidden; }
 
         .tech-header {
             position: relative;
@@ -35,7 +26,6 @@
             border-bottom: 2px solid var(--deep-purple);
         }
 
-        /* Animated Grid Logic */
         .grid-overlay {
             position: absolute;
             inset: -100% 0;
@@ -55,12 +45,9 @@
             to { transform: rotateX(60deg) translateY(45px); }
         }
 
-        /* The "Pop" - Magenta Glow Pulse */
         .glow-text {
             color: var(--eye-safe-white);
-            text-shadow: 
-                0 0 10px var(--magenta),
-                0 0 20px var(--deep-purple);
+            text-shadow: 0 0 10px var(--magenta), 0 0 20px var(--deep-purple);
             letter-spacing: 0.3em;
             animation: text-pulse 4s ease-in-out infinite;
         }
@@ -70,7 +57,6 @@
             50% { filter: brightness(130%) blur(0.5px); text-shadow: 0 0 30px var(--magenta); }
         }
 
-        /* Mobile UX adjustments */
         @media (max-width: 768px) {
             .glow-text { font-size: 2.5rem; letter-spacing: 0.2em; }
             .tech-header { height: 35vh; }
@@ -78,17 +64,18 @@
     </style>
 
     <canvas id="favicon-canvas" width="32" height="32" style="display:none;"></canvas>
+    
     <script>
         (function() {
-            window.onload = function() {
+            const startProtocol = () => {
                 const canvas = document.getElementById('favicon-canvas');
+                if(!canvas) return;
                 const ctx = canvas.getContext('2d');
                 const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
                 link.type = 'image/x-icon';
                 link.rel = 'shortcut icon';
                 document.getElementsByTagName('head')[0].appendChild(link);
 
-                // 1. Favicon "G" Animation Logic
                 let hue = 300; 
                 function animateG() {
                     ctx.clearRect(0, 0, 32, 32);
@@ -105,7 +92,6 @@
                     setTimeout(animateG, 150);
                 }
 
-                // 2. Scrolling Title "Banner" Logic
                 let titleText = " I.T. GURUZ - SECURITY PROTOCOL ACTIVE - ";
                 function scrollTitle() {
                     document.title = titleText;
@@ -116,16 +102,24 @@
                 animateG();
                 scrollTitle();
             };
+
+            const checkExist = setInterval(() => {
+                if (document.getElementById('favicon-canvas')) {
+                    startProtocol();
+                    clearInterval(checkExist);
+                }
+            }, 100);
         })();
     </script>
 </head>
+
 <body class="font-sans">
 
     <header class="tech-header">
         <div class="grid-overlay"></div>
         <div class="relative z-10 text-center px-4">
             <h1 class="text-5xl md:text-7xl font-black glow-text mb-4 uppercase">I.T. GURUZ</h1>
-            <p class="text-magenta-500 font-mono tracking-widest text-xs md:text-sm uppercase">The Original Cyber Guru</p>
+            <p class="text-magenta-500 font-mono tracking-widest text-xs md:text-sm uppercase">Systems Engineered by Ayurell</p>
         </div>
     </header>
 
@@ -190,7 +184,7 @@
     </section>
 
     <footer class="py-12 text-center text-slate-800 text-[9px] tracking-[0.4em] uppercase">
-        &copy; 2026 I.T. GURUZ | Systems Engineered by Ayurell
+        &copy; 2026 I.T. GURUZ | Powered by Ayurell
     </footer>
 
 </body>
