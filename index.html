@@ -69,56 +69,48 @@
         .glow-text { font-size: 2.5rem; letter-spacing: 0.2em; }
         .tech-header { height: 35vh; }
     }
-</style>
-    <canvas id="favicon-canvas" width="32" height="32" style="display:none;"></canvas>
-    <script>
-        (function() {
-            const canvas = document.getElementById('favicon-canvas');
-            const ctx = canvas.getContext('2d');
-            const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-            link.type = 'image/x-icon';
-            link.rel = 'shortcut icon';
-            document.getElementsByTagName('head')[0].appendChild(link);
+<canvas id="favicon-canvas" width="32" height="32" style="display:none;"></canvas>
+<script>
+    (function() {
+        const canvas = document.getElementById('favicon-canvas');
+        const ctx = canvas.getContext('2d');
+        const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+        link.type = 'image/x-icon';
+        link.rel = 'shortcut icon';
+        document.getElementsByTagName('head')[0].appendChild(link);
 
-            let hue = 300; // Starting Magenta hue
+        // 1. Favicon "G" Animation Logic
+        let hue = 300; 
+        function animateG() {
+            ctx.clearRect(0, 0, 32, 32);
+            const color = `hsl(${hue}, 100%, 60%)`;
+            ctx.fillStyle = color;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = color;
+            ctx.font = "bold 24px monospace";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText("G", 16, 16);
+            link.href = canvas.toDataURL('image/png');
+            hue = (hue + 1) % 360;
+            setTimeout(animateG, 150);
+        }
 
-            function animateFavicon() {
-                ctx.clearRect(0, 0, 32, 32);
-                
-                // Set the glowing color
-                const color = `hsl(${hue}, 100%, 60%)`;
-                ctx.fillStyle = color;
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = color;
-                
-                // Draw the "G"
-                ctx.font = "bold 24px 'Courier New', monospace";
-                ctx.textAlign = "center";
-                ctx.textBaseline = "middle";
-                ctx.fillText("G", 16, 16);
+        // 2. Scrolling Title "Banner" Logic
+        let titleText = " I.T. GURUZ - SECURITY PROTOCOL ACTIVE - ";
+        function scrollTitle() {
+            document.title = titleText;
+            // Move first character to the end to create "Right to Left" scroll
+            titleText = titleText.substring(1) + titleText.substring(0, 1);
+            setTimeout(scrollTitle, 200); // Adjust speed here (higher = slower)
+        }
 
-                // Update the tab icon
-                link.href = canvas.toDataURL('image/png');
-
-                // Shift the color slowly (1 degree at a time)
-                hue = (hue + 1) % 360; 
-                setTimeout(animateFavicon, 150); 
-            }
-            animateFavicon();
-        })();
-    </script>
-    ```
-
-
-
----
-
-### Pro-Tips for the Best Visuals:
-* **The "G" Font:** I set it to `Courier New` in the code above to give it a "Hacker/Terminal" vibe that fits your **I.T. GURUZ** brand.
-* **The Colors:** Because it's an HSL cycle, it will fade from Magenta to Purple, then Blue, then Teal. It looks incredibly high-end on browsers that support it.
-* **Don't forget to Commit:** Once you paste it, scroll to the bottom of GitHub, write a commit message like "Add animated favicon," and hit **Commit changes**.
-
-**Once you save this, would you like me to help you update the main banner text so it "glitches" occasionally to match this new animated favicon?**
+        // Initialize both
+        animateG();
+        scrollTitle();
+    })();
+</script>
+  
 </head>
 <body class="bg-slate-950 text-slate-200 font-sans">
 
