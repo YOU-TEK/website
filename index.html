@@ -21,6 +21,7 @@
         body {
             background-color: var(--cyber-black);
             color: var(--eye-safe-white);
+            overflow-x: hidden;
         }
 
         .tech-header {
@@ -108,4 +109,89 @@
                 let titleText = " I.T. GURUZ - SECURITY PROTOCOL ACTIVE - ";
                 function scrollTitle() {
                     document.title = titleText;
-                    titleText = titleText.substring(1) + titleText.substring(0
+                    titleText = titleText.substring(1) + titleText.substring(0, 1);
+                    setTimeout(scrollTitle, 200);
+                }
+
+                animateG();
+                scrollTitle();
+            };
+        })();
+    </script>
+</head>
+<body class="font-sans">
+
+    <header class="tech-header">
+        <div class="grid-overlay"></div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-black glow-text mb-4 uppercase">I.T. GURUZ</h1>
+            <p class="text-magenta-500 font-mono tracking-widest text-xs md:text-sm uppercase">The Original Cyber Guru</p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-16 px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-tight">The Technical Safety Net</h2>
+        <p class="text-xl md:text-2xl mb-12 text-slate-400">
+            Proactive maintenance for <span class="text-magenta-500 font-bold">Huntington Beach</span> businesses.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-16 text-left">
+            <div class="p-6 bg-slate-900/40 rounded-xl border border-magenta-900/30">
+                <div class="text-magenta-500 mb-2 font-bold italic uppercase text-xs">Proactive</div>
+                <p class="text-sm text-slate-400 font-mono">Issues identified before they impact your workflow.</p>
+            </div>
+            <div class="p-6 bg-slate-900/40 rounded-xl border border-magenta-900/30">
+                <div class="text-magenta-500 mb-2 font-bold italic uppercase text-xs">Stable</div>
+                <p class="text-sm text-slate-400 font-mono">Zero downtime infrastructure management.</p>
+            </div>
+            <div class="p-6 bg-slate-900/40 rounded-xl border border-magenta-900/30">
+                <div class="text-magenta-500 mb-2 font-bold italic uppercase text-xs">$150/MO</div>
+                <p class="text-sm text-slate-400 font-mono">Flat-rate security for the Founding 20 members.</p>
+            </div>
+        </div>
+
+        <a href="#join" class="inline-block bg-gradient-to-r from-magenta-600 to-purple-600 hover:from-magenta-500 hover:to-purple-500 text-white px-10 py-4 rounded-lg font-black uppercase tracking-widest transition-all shadow-lg shadow-magenta-900/40 active:scale-95">
+            Secure a Founding Spot
+        </a>
+    </main>
+
+    <section id="join" class="py-20 px-6 bg-slate-950 border-t border-magenta-900/20">
+        <div class="max-w-lg mx-auto">
+            <h2 class="text-3xl font-bold mb-2 text-center text-magenta-500 uppercase tracking-widest">Client Intake Terminal</h2>
+            <p class="text-center text-slate-500 text-[10px] mb-10 uppercase font-mono tracking-tighter">Initializing Secure Transmission Protocol</p>
+            
+            <form action="https://formspree.io/f/maqqqkna" method="POST" class="space-y-6">
+                <input type="hidden" name="_next" value="https://itguruz.com/success.html">
+                <input type="text" name="_gotcha" style="display:none">
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-widest mb-2 text-magenta-500/70">Business Name</label>
+                    <input type="text" name="company" required placeholder="Enter Company Name" 
+                           class="w-full p-4 bg-slate-900 border border-slate-800 rounded-lg focus:border-magenta-500 text-white outline-none transition-all">
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-widest mb-2 text-magenta-500/70">Your Email</label>
+                    <input type="email" name="email" required placeholder="name@business.com" 
+                           class="w-full p-4 bg-slate-900 border border-slate-800 rounded-lg focus:border-magenta-500 text-white outline-none transition-all">
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-widest mb-2 text-magenta-500/70">Infrastructure Message</label>
+                    <textarea name="message" rows="4" required placeholder="Describe your current tech landscape..." 
+                              class="w-full p-4 bg-slate-900 border border-slate-800 rounded-lg focus:border-magenta-500 text-white outline-none transition-all"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-magenta-600 hover:bg-magenta-500 text-white font-black uppercase tracking-[0.2em] rounded-lg transition-all shadow-md shadow-magenta-900/40 active:scale-95">
+                    Initialize Onboarding
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-slate-800 text-[9px] tracking-[0.4em] uppercase">
+        &copy; 2026 I.T. GURUZ | Systems Engineered by Ayurell
+    </footer>
+
+</body>
+</html>
