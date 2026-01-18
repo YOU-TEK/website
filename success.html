@@ -3,22 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request Received | HB Managed IT</title>
+    <title>I.T. GURUZ | Secure Payment</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --magenta: #ff00ff;
+            --cyber-black: #050508;
+        }
+        body { background-color: var(--cyber-black); color: #e0e0ff; }
+        
+        .cyber-card {
+            border: 1px solid var(--magenta);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+            background: rgba(15, 15, 25, 0.8);
+        }
+
+        .cyber-button {
+            background: linear-gradient(90deg, #ff00ff 0%, #7000ff 100%);
+            color: white !important;
+            border: 1px solid #ff00ff;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+        }
+    </style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans flex items-center justify-center min-h-screen p-6">
-    <div class="max-w-md w-full text-center bg-slate-800 p-10 rounded-3xl border border-slate-700 shadow-2xl">
-        <div class="mb-6 inline-flex items-center justify-center w-20 h-20 bg-green-500/10 rounded-full">
-            <i class="fas fa-check-circle text-green-500 text-5xl"></i>
+<body class="flex items-center justify-center min-h-screen p-6 font-sans">
+
+    <div class="max-w-md w-full p-8 rounded-2xl cyber-card text-center">
+        <div class="mb-6 inline-flex p-4 rounded-full bg-magenta-500/10 text-magenta-500">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
         </div>
-        <h1 class="text-3xl font-bold mb-4 italic uppercase tracking-tight">Request Received</h1>
-        <p class="text-slate-400 mb-8 leading-relaxed">
-            I've received your request for a **10-Minute Health Audit.** I'll reach out via email within 24 hours to schedule your remote scan.
+        
+        <h1 class="text-3xl font-black uppercase tracking-tighter mb-4" style="color: #ff00ff;">Intake Received</h1>
+        <p class="text-slate-400 text-sm mb-8 font-mono">
+            Identity Verified. Secure your Founding 20 spot by initializing your monthly security protocol below.
         </p>
-        <a href="index.html" class="inline-block text-indigo-400 hover:text-white font-semibold transition py-2 px-4 border border-indigo-400 hover:border-white rounded-lg">
-            ← Back to Homepage
+
+        <a href="YOUR_SQUARE_LINK_HERE" 
+           class="cyber-button block w-full py-5 rounded-lg transition-all active:scale-95 mb-6">
+            Authorize $150/mo
         </a>
+
+        <div class="space-y-2">
+            <p class="text-[10px] text-slate-600 uppercase tracking-widest">Encrypted Transaction via Square</p>
+            <a href="index.html" class="text-[10px] text-magenta-500/50 hover:text-magenta-500 uppercase tracking-widest transition-colors">Return to Terminal</a>
+        </div>
     </div>
+
 </body>
 </html>
