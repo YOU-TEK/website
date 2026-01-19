@@ -7,8 +7,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { margin: 0; overflow-x: hidden; background-color: #020617; scroll-behavior: smooth; }
-        #canvas-container { position: fixed; top: 0; left: 0; z-index: 1; width: 100%; height: 100vh; pointer-events: none; }
+        body { 
+            margin: 0; 
+            overflow-x: hidden; 
+            background-color: #020617; 
+            scroll-behavior: smooth; 
+            position: relative;
+        }
+        #canvas-container { position: fixed; top: 0; left: 0; z-index: -1; width: 100%; height: 100vh; pointer-events: none; }
         .glass { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .square-btn {
             background: linear-gradient(90deg, #006aff 0%, #00d4ff 100%);
@@ -37,46 +43,137 @@
         .testimonial-card:hover { transform: translateY(-5px); }
         .portfolio-item { transition: all 0.3s ease; }
         .portfolio-item:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 106, 255, 0.3); }
+        
+        /* Force Tawk.to to stay visible */
+        .tawk-to-container,
+        .tawk-to-container *,
+        .tawk-to-min-container,
+        .tawk-to-min-container *,
+        .tawk-to-max-widget,
+        .tawk-to-max-widget * {
+            z-index: 999999 !important;
+            position: fixed !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            display: block !important;
+            pointer-events: auto !important;
+        }
+
+        /* Override any hover hiding */
+        .tawk-to-container:hover,
+        .tawk-to-container *:hover,
+        .tawk-to-min-container:hover,
+        .tawk-to-min-container *:hover,
+        .tawk-to-max-widget:hover,
+        .tawk-to-max-widget *:hover {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+            transform: none !important;
+        }
     </style>
 </head>
 <body class="text-slate-200 font-sans">
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/63b9f2af47425128790c3b31/1gm75nvdc';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+
+    // Force Tawk.to to stay visible
+    window.Tawk_OnLoad = function() {
+        const tawkElements = document.querySelectorAll('[class*="tawk"]');
+        tawkElements.forEach(function(el) {
+            el.style.setProperty('visibility', 'visible', 'important');
+            el.style.setProperty('opacity', '1', 'important');
+            el.style.setProperty('display', 'block', 'important');
+        });
+    };
+    </script>
+    <!--End of Tawk.to Script-->
 
     <div id="canvas-container"></div>
 
     <main class="relative z-10">
         <section class="flex flex-col items-center justify-center min-h-[50vh] pt-20 px-6 text-center">
             <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tight text-white uppercase italic">IT GURUZ</h1>
-            <p class="text-blue-400 font-mono tracking-widest text-sm uppercase mb-10">Huntington Beach Safety Net</p>
+            <p class="text-blue-400 font-mono tracking-widest text-sm uppercase mb-10">"THE ORIGINAL CYBER-GURU"</p>
             <div class="flex gap-4">
                 <a href="#join" class="glass px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest border border-blue-500/30">Connect Terminal</a>
+                <a href="tel:3237546728" class="glass px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest border border-green-400 bg-green-400/20 hover:bg-green-400/30 transition-all">
+                    <i class="fas fa-phone mr-2 text-green-300"></i>Call Now
+                </a>
             </div>
         </section>
 
         <!-- Services Section -->
         <section id="services" class="max-w-7xl mx-auto py-20 px-6">
-            <h2 class="text-4xl font-black text-center mb-16 text-white uppercase tracking-wider">Our Services</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass p-8 rounded-2xl">
-                    <div class="text-blue-400 text-3xl mb-4"><i class="fas fa-shield-alt"></i></div>
-                    <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-wider">Cybersecurity</h3>
-                    <p class="text-slate-400 mb-6">Advanced threat protection, firewall management, and security audits to keep your business safe.</p>
-                    <div class="text-2xl font-bold text-blue-400 mb-2">$299<span class="text-sm text-slate-500">/mo</span></div>
+            <h2 class="text-4xl font-black text-center mb-16 text-white uppercase tracking-wider">Small Business Solutions</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass p-6 rounded-2xl">
+                    <div class="text-blue-400 text-2xl mb-3"><i class="fas fa-stethoscope"></i></div>
+                    <h3 class="text-lg font-bold mb-3 text-white uppercase tracking-wider">Basic Monitoring</h3>
+                    <p class="text-slate-400 text-sm mb-4">Perfect for small offices. 1 router, 1 firewall, basic network monitoring.</p>
+                    <div class="text-xl font-bold text-blue-400 mb-2">$150<span class="text-xs text-slate-500">/mo</span></div>
+                    <ul class="text-xs text-slate-400 mb-4 space-y-1">
+                        <li>• 24/7 Network Monitoring</li>
+                        <li>• Monthly Security Reports</li>
+                        <li>• Email/Phone Support</li>
+                        <li>• Basic Backup Checks</li>
+                    </ul>
                     <button class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase text-xs tracking-widest rounded-xl transition-all">Get Started</button>
                 </div>
-                <div class="glass p-8 rounded-2xl">
-                    <div class="text-blue-400 text-3xl mb-4"><i class="fas fa-cloud"></i></div>
-                    <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-wider">Cloud Solutions</h3>
-                    <p class="text-slate-400 mb-6">Complete cloud migration, management, and optimization for maximum efficiency.</p>
-                    <div class="text-2xl font-bold text-blue-400 mb-2">$399<span class="text-sm text-slate-500">/mo</span></div>
+                <div class="glass p-6 rounded-2xl">
+                    <div class="text-green-400 text-2xl mb-3"><i class="fas fa-user-md"></i></div>
+                    <h3 class="text-lg font-bold mb-3 text-white uppercase tracking-wider">Professional Plus</h3>
+                    <p class="text-slate-400 text-sm mb-4">For growing practices. Up to 10 devices including POS systems, medical equipment.</p>
+                    <div class="text-xl font-bold text-blue-400 mb-2">$250<span class="text-xs text-slate-500">/mo</span></div>
+                    <ul class="text-xs text-slate-400 mb-4 space-y-1">
+                        <li>• Everything in Basic</li>
+                        <li>• Device Management (up to 10)</li>
+                        <li>• HIPAA Compliance Checks</li>
+                        <li>• Quarterly On-site Visits</li>
+                    </ul>
                     <button class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase text-xs tracking-widest rounded-xl transition-all">Get Started</button>
                 </div>
-                <div class="glass p-8 rounded-2xl">
-                    <div class="text-blue-400 text-3xl mb-4"><i class="fas fa-server"></i></div>
-                    <h3 class="text-xl font-bold mb-4 text-white uppercase tracking-wider">IT Support</h3>
-                    <p class="text-slate-400 mb-6">24/7 technical support, hardware maintenance, and software troubleshooting.</p>
-                    <div class="text-2xl font-bold text-blue-400 mb-2">$199<span class="text-sm text-slate-500">/mo</span></div>
+                <div class="glass p-6 rounded-2xl">
+                    <div class="text-purple-400 text-2xl mb-3"><i class="fas fa-utensils"></i></div>
+                    <h3 class="text-lg font-bold mb-3 text-white uppercase tracking-wider">Restaurant Pro</h3>
+                    <p class="text-slate-400 text-sm mb-4">For restaurants with POS systems, kitchen displays, multiple devices.</p>
+                    <div class="text-xl font-bold text-blue-400 mb-2">$350<span class="text-xs text-slate-500">/mo</span></div>
+                    <ul class="text-xs text-slate-400 mb-4 space-y-1">
+                        <li>• POS System Monitoring</li>
+                        <li>• Kitchen Display Support</li>
+                        <li>• Internet Backup Solutions</li>
+                        <li>• Priority Emergency Support</li>
+                    </ul>
                     <button class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase text-xs tracking-widest rounded-xl transition-all">Get Started</button>
                 </div>
+                <div class="glass p-6 rounded-2xl">
+                    <div class="text-red-400 text-2xl mb-3"><i class="fas fa-ambulance"></i></div>
+                    <h3 class="text-lg font-bold mb-3 text-white uppercase tracking-wider">Emergency Service</h3>
+                    <p class="text-slate-400 text-sm mb-4">On-demand emergency calls and priority service for critical issues.</p>
+                    <div class="text-xl font-bold text-red-400 mb-2">$150<span class="text-xs text-slate-500">/call</span></div>
+                    <ul class="text-xs text-slate-400 mb-4 space-y-1">
+                        <li>• 2-Hour Response Time</li>
+                        <li>• Emergency On-site Service</li>
+                        <li>• Weekend/Holiday Support</li>
+                        <li>• Critical Issue Resolution</li>
+                    </ul>
+                    <button class="w-full py-3 bg-red-600 hover:bg-red-700 text-white font-bold uppercase text-xs tracking-widest rounded-xl transition-all">Call Now</button>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="tel:3237546728" class="inline-flex items-center glass px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest border border-green-400 bg-green-400/20 hover:bg-green-400/30 transition-all">
+                    <i class="fas fa-phone-alt mr-3 text-green-300"></i>
+                    <span class="text-green-200">Emergency Support: (323) 754-6728</span>
+                </a>
             </div>
         </section>
 
@@ -92,12 +189,12 @@
                         <i class="fas fa-star text-yellow-400"></i>
                         <i class="fas fa-star text-yellow-400"></i>
                     </div>
-                    <p class="text-slate-300 mb-6 italic">"IT GURUZ transformed our entire infrastructure. Their expertise and responsiveness are unmatched."</p>
+                    <p class="text-slate-300 mb-6 italic">"IT GURUZ transformed our dental practice. Their HIPAA compliance monitoring gives us peace of mind."</p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-blue-500 rounded-full mr-4"></div>
                         <div>
-                            <div class="font-bold text-white">Sarah Johnson</div>
-                            <div class="text-xs text-slate-400">CEO, TechStart Inc.</div>
+                            <div class="font-bold text-white">Dr. Sarah Johnson</div>
+                            <div class="text-xs text-slate-400">Dental Practice Owner</div>
                         </div>
                     </div>
                 </div>
@@ -109,12 +206,12 @@
                         <i class="fas fa-star text-yellow-400"></i>
                         <i class="fas fa-star text-yellow-400"></i>
                     </div>
-                    <p class="text-slate-300 mb-6 italic">"Best IT decision we ever made. They saved us from a major data breach and optimized our systems."</p>
+                    <p class="text-slate-300 mb-6 italic">"Our restaurant POS system has never been more reliable. They saved us during our busiest dinner rush!"</p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-green-500 rounded-full mr-4"></div>
                         <div>
                             <div class="font-bold text-white">Michael Chen</div>
-                            <div class="text-xs text-slate-400">CTO, Global Finance</div>
+                            <div class="text-xs text-slate-400">Restaurant Owner</div>
                         </div>
                     </div>
                 </div>
@@ -126,12 +223,12 @@
                         <i class="fas fa-star text-yellow-400"></i>
                         <i class="fas fa-star text-yellow-400"></i>
                     </div>
-                    <p class="text-slate-300 mb-6 italic">"Professional, reliable, and always available. They handle everything so we can focus on growing our business."</p>
+                    <p class="text-slate-300 mb-6 italic">"Professional, reliable, and affordable. Perfect for our small law firm's IT needs."</p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-purple-500 rounded-full mr-4"></div>
                         <div>
                             <div class="font-bold text-white">Emily Rodriguez</div>
-                            <div class="text-xs text-slate-400">Founder, Creative Agency</div>
+                            <div class="text-xs text-slate-400">Law Firm Partner</div>
                         </div>
                     </div>
                 </div>
@@ -144,35 +241,35 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="portfolio-item glass p-8 rounded-2xl">
                     <div class="bg-slate-800 h-40 rounded-xl mb-6 flex items-center justify-center">
-                        <i class="fas fa-network-wired text-4xl text-blue-400"></i>
+                        <i class="fas fa-tooth text-4xl text-blue-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white uppercase tracking-wider">Network Overhaul</h3>
-                    <p class="text-slate-400 mb-4">Complete network infrastructure redesign for 500+ employee company.</p>
+                    <h3 class="text-xl font-bold mb-3 text-white uppercase tracking-wider">Dental Office Setup</h3>
+                    <p class="text-slate-400 mb-4">Complete HIPAA-compliant network setup for 5-chair dental practice.</p>
                     <div class="flex gap-2">
-                        <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs uppercase">Networking</span>
-                        <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs uppercase">Security</span>
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs uppercase">Medical</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs uppercase">HIPAA</span>
                     </div>
                 </div>
                 <div class="portfolio-item glass p-8 rounded-2xl">
                     <div class="bg-slate-800 h-40 rounded-xl mb-6 flex items-center justify-center">
-                        <i class="fas fa-database text-4xl text-green-400"></i>
+                        <i class="fas fa-gavel text-4xl text-green-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white uppercase tracking-wider">Cloud Migration</h3>
-                    <p class="text-slate-400 mb-4">Migrated legacy systems to AWS with 99.9% uptime guarantee.</p>
+                    <h3 class="text-xl font-bold mb-3 text-white uppercase tracking-wider">Law Firm Security</h3>
+                    <p class="text-slate-400 mb-4">Enhanced cybersecurity and document management for legal practice.</p>
                     <div class="flex gap-2">
-                        <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs uppercase">Cloud</span>
-                        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs uppercase">AWS</span>
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs uppercase">Legal</span>
+                        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs uppercase">Security</span>
                     </div>
                 </div>
                 <div class="portfolio-item glass p-8 rounded-2xl">
                     <div class="bg-slate-800 h-40 rounded-xl mb-6 flex items-center justify-center">
-                        <i class="fas fa-lock text-4xl text-red-400"></i>
+                        <i class="fas fa-pizza-slice text-4xl text-red-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white uppercase tracking-wider">Security Audit</h3>
-                    <p class="text-slate-400 mb-4">Comprehensive security assessment and vulnerability remediation.</p>
+                    <h3 class="text-xl font-bold mb-3 text-white uppercase tracking-wider">Restaurant POS</h3>
+                    <p class="text-slate-400 mb-4">POS system installation and backup internet for busy restaurant.</p>
                     <div class="flex gap-2">
-                        <span class="px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-xs uppercase">Security</span>
-                        <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs uppercase">Audit</span>
+                        <span class="px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-xs uppercase">Restaurant</span>
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs uppercase">POS</span>
                     </div>
                 </div>
             </div>
@@ -185,26 +282,26 @@
                 <div class="glass p-8 rounded-2xl text-center">
                     <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4"></div>
                     <h3 class="text-lg font-bold text-white mb-2">Alex Rivera</h3>
-                    <p class="text-blue-400 text-sm mb-3">Lead Engineer</p>
-                    <p class="text-slate-400 text-xs">15+ years in enterprise IT solutions</p>
+                    <p class="text-blue-400 text-sm mb-3">Small Business Specialist</p>
+                    <p class="text-slate-400 text-xs">Expert in medical and legal IT solutions</p>
                 </div>
                 <div class="glass p-8 rounded-2xl text-center">
                     <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-blue-600 rounded-full mx-auto mb-4"></div>
                     <h3 class="text-lg font-bold text-white mb-2">Jordan Kim</h3>
-                    <p class="text-blue-400 text-sm mb-3">Security Specialist</p>
-                    <p class="text-slate-400 text-xs">Cybersecurity expert with CISSP certification</p>
+                    <p class="text-blue-400 text-sm mb-3">POS Systems Expert</p>
+                    <p class="text-slate-400 text-xs">Restaurant and retail technology specialist</p>
                 </div>
                 <div class="glass p-8 rounded-2xl text-center">
                     <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full mx-auto mb-4"></div>
                     <h3 class="text-lg font-bold text-white mb-2">Taylor Morgan</h3>
-                    <p class="text-blue-400 text-sm mb-3">Cloud Architect</p>
-                    <p class="text-slate-400 text-xs">AWS certified solutions architect</p>
+                    <p class="text-blue-400 text-sm mb-3">Compliance Officer</p>
+                    <p class="text-slate-400 text-xs">HIPAA and regulatory compliance expert</p>
                 </div>
                 <div class="glass p-8 rounded-2xl text-center">
                     <div class="w-24 h-24 bg-gradient-to-br from-yellow-500 to-red-600 rounded-full mx-auto mb-4"></div>
                     <h3 class="text-lg font-bold text-white mb-2">Casey Johnson</h3>
-                    <p class="text-blue-400 text-sm mb-3">Support Lead</p>
-                    <p class="text-slate-400 text-xs">24/7 support team coordinator</p>
+                    <p class="text-blue-400 text-sm mb-3">Emergency Response</p>
+                    <p class="text-slate-400 text-xs">24/7 emergency support coordinator</p>
                 </div>
             </div>
         </section>
@@ -216,23 +313,23 @@
                 <div class="grid md:grid-cols-4 gap-6">
                     <div class="text-center">
                         <div class="status-indicator status-online animate-pulse"></div>
-                        <h4 class="font-bold text-white mb-2">Network</h4>
-                        <p class="text-green-400 text-sm">Operational</p>
+                        <h4 class="font-bold text-white mb-2">Support Line</h4>
+                        <p class="text-green-400 text-sm">Available</p>
                     </div>
                     <div class="text-center">
                         <div class="status-indicator status-online animate-pulse"></div>
-                        <h4 class="font-bold text-white mb-2">Cloud Services</h4>
-                        <p class="text-green-400 text-sm">Operational</p>
+                        <h4 class="font-bold text-white mb-2">Emergency Response</h4>
+                        <p class="text-green-400 text-sm">Ready</p>
                     </div>
                     <div class="text-center">
                         <div class="status-indicator status-warning"></div>
-                        <h4 class="font-bold text-white mb-2">Email Server</h4>
-                        <p class="text-yellow-400 text-sm">Maintenance</p>
+                        <h4 class="font-bold text-white mb-2">Scheduling</h4>
+                        <p class="text-yellow-400 text-sm">High Volume</p>
                     </div>
                     <div class="text-center">
                         <div class="status-indicator status-online animate-pulse"></div>
-                        <h4 class="font-bold text-white mb-2">Support</h4>
-                        <p class="text-green-400 text-sm">Available</p>
+                        <h4 class="font-bold text-white mb-2">Monitoring</h4>
+                        <p class="text-green-400 text-sm">All Systems Online</p>
                     </div>
                 </div>
                 <div class="mt-6 p-4 bg-slate-800 rounded-xl">
@@ -247,38 +344,38 @@
             <div class="space-y-4">
                 <div class="faq-item glass p-6 rounded-xl">
                     <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
-                        <h3 class="font-bold text-white">What response times do you offer?</h3>
+                        <h3 class="font-bold text-white">What types of small businesses do you serve?</h3>
                         <i class="fas fa-chevron-down text-blue-400"></i>
                     </div>
                     <div class="hidden mt-4 text-slate-400">
-                        <p>We offer tiered response times: Critical issues - 1 hour, High priority - 4 hours, Normal priority - 24 hours, Low priority - 48 hours.</p>
+                        <p>We specialize in medical practices, dental offices, law firms, restaurants, and other small businesses with 1-50 employees. Our solutions are tailored to meet the specific compliance and operational needs of each industry.</p>
                     </div>
                 </div>
                 <div class="faq-item glass p-6 rounded-xl">
                     <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
-                        <h3 class="font-bold text-white">Do you provide 24/7 support?</h3>
+                        <h3 class="font-bold text-white">How quickly can you respond to emergencies?</h3>
                         <i class="fas fa-chevron-down text-blue-400"></i>
                     </div>
                     <div class="hidden mt-4 text-slate-400">
-                        <p>Yes, our premium plans include 24/7 support. Standard plans offer support during business hours with emergency after-hours contact.</p>
+                        <p>Emergency service calls guarantee a 2-hour response time for critical issues that impact your business operations. We offer 24/7 emergency support including weekends and holidays.</p>
                     </div>
                 </div>
                 <div class="faq-item glass p-6 rounded-xl">
                     <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
-                        <h3 class="font-bold text-white">What industries do you serve?</h3>
+                        <h3 class="font-bold text-white">Do you handle HIPAA compliance for medical offices?</h3>
                         <i class="fas fa-chevron-down text-blue-400"></i>
                     </div>
                     <div class="hidden mt-4 text-slate-400">
-                        <p>We serve all industries but specialize in healthcare, finance, legal, and manufacturing sectors with compliance requirements.</p>
+                        <p>Yes! Our Professional Plus plan includes HIPAA compliance checks, secure patient data handling, and regular security audits specifically designed for medical and dental practices.</p>
                     </div>
                 </div>
                 <div class="faq-item glass p-6 rounded-xl">
                     <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
-                        <h3 class="font-bold text-white">How quickly can you onboard new clients?</h3>
+                        <h3 class="font-bold text-white">Can you support restaurant POS systems?</h3>
                         <i class="fas fa-chevron-down text-blue-400"></i>
                     </div>
                     <div class="hidden mt-4 text-slate-400">
-                        <p>Typical onboarding takes 3-5 business days. Emergency onboarding available within 24 hours for critical situations.</p>
+                        <p>Absolutely. Our Restaurant Pro plan includes POS system monitoring, kitchen display support, backup internet solutions, and priority emergency support to keep your business running during peak hours.</p>
                     </div>
                 </div>
             </div>
@@ -289,21 +386,21 @@
             <h2 class="text-4xl font-black text-center mb-16 text-white uppercase tracking-wider">Resources & Insights</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="glass p-8 rounded-2xl">
-                    <div class="text-blue-400 text-sm mb-3">CYBERSECURITY • 2 DAYS AGO</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">10 Essential Security Tips for 2024</h3>
-                    <p class="text-slate-400 mb-4">Learn the latest cybersecurity best practices to protect your business from evolving threats.</p>
+                    <div class="text-blue-400 text-sm mb-3">HIPAA • 2 DAYS AGO</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">HIPAA Compliance Checklist for Medical Offices</h3>
+                    <p class="text-slate-400 mb-4">Essential steps to ensure your medical practice meets all HIPAA requirements in 2024.</p>
                     <a href="#" class="text-blue-400 text-sm font-bold uppercase tracking-wider">Read More →</a>
                 </div>
                 <div class="glass p-8 rounded-2xl">
-                    <div class="text-green-400 text-sm mb-3">CLOUD • 5 DAYS AGO</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Cloud Migration Success Stories</h3>
-                    <p class="text-slate-400 mb-4">Real-world examples of successful cloud migrations and the lessons learned.</p>
+                    <div class="text-green-400 text-sm mb-3">RESTAURANT • 5 DAYS AGO</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">POS System Backup Solutions</h3>
+                    <p class="text-slate-400 mb-4">How to prevent costly downtime with redundant internet and POS backup systems.</p>
                     <a href="#" class="text-blue-400 text-sm font-bold uppercase tracking-wider">Read More →</a>
                 </div>
                 <div class="glass p-8 rounded-2xl">
-                    <div class="text-purple-400 text-sm mb-3">IT STRATEGY • 1 WEEK AGO</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Building a Resilient IT Infrastructure</h3>
-                    <p class="text-slate-400 mb-4">Key considerations for creating an IT infrastructure that can withstand disruptions.</p>
+                    <div class="text-purple-400 text-sm mb-3">SMALL BUSINESS • 1 WEEK AGO</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Cybersecurity for Small Law Firms</h3>
+                    <p class="text-slate-400 mb-4">Protecting client data and maintaining confidentiality in legal practice IT systems.</p>
                     <a href="#" class="text-blue-400 text-sm font-bold uppercase tracking-wider">Read More →</a>
                 </div>
             </div>
@@ -316,7 +413,7 @@
                 <div class="glass p-6 rounded-2xl text-center">
                     <i class="fas fa-phone text-3xl text-blue-400 mb-4"></i>
                     <h3 class="font-bold text-white mb-2">Phone</h3>
-                    <p class="text-slate-400 text-sm">(714) 555-0123</p>
+                    <p class="text-slate-400 text-sm">(323) 754-6728</p>
                     <p class="text-blue-400 text-xs">24/7 Emergency Line</p>
                 </div>
                 <div class="glass p-6 rounded-2xl text-center">
@@ -350,12 +447,13 @@
                     <input type="tel" name="phone" placeholder="Phone Number" class="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl text-white outline-none focus:border-blue-500 transition-all">
                     <select name="service" class="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl text-white outline-none focus:border-blue-500 transition-all">
                         <option value="">Select Service</option>
-                        <option value="cybersecurity">Cybersecurity</option>
-                        <option value="cloud">Cloud Solutions</option>
-                        <option value="support">IT Support</option>
-                        <option value="other">Other</option>
+                        <option value="basic">Basic Monitoring - $150/mo</option>
+                        <option value="professional">Professional Plus - $250/mo</option>
+                        <option value="restaurant">Restaurant Pro - $350/mo</option>
+                        <option value="emergency">Emergency Service - $150/call</option>
+                        <option value="other">Other/Custom Quote</option>
                     </select>
-                    <textarea name="message" rows="3" placeholder="Infrastructure message..." required class="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl text-white outline-none focus:border-blue-500 transition-all"></textarea>
+                    <textarea name="message" rows="3" placeholder="Tell us about your business needs..." required class="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl text-white outline-none focus:border-blue-500 transition-all"></textarea>
                     <button type="submit" class="w-full py-4 bg-slate-800 hover:bg-blue-600 text-white font-bold uppercase text-xs tracking-widest rounded-xl transition-all">Submit Inquiry</button>
                 </form>
             </div>
@@ -364,7 +462,7 @@
                 <h3 class="text-xl font-bold uppercase tracking-widest text-white mb-6">2. Secure Spot</h3>
                 <div class="p-8 bg-blue-500/5 rounded-3xl border border-blue-500/20 mb-6">
                     <p class="text-5xl font-black text-white mb-2">$150<span class="text-sm text-slate-500">/mo</span></p>
-                    <p class="text-[10px] text-slate-400 uppercase tracking-[0.3em] mb-8 font-bold">Founding Member Rate</p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-[0.3em] mb-8 font-bold">Small Business Starter</p>
                     
                     <a href="https://square.link/u/rqxX8otB" target="_blank" class="square-btn block w-full py-6 rounded-2xl font-black uppercase tracking-widest text-lg text-center">
                         PAYMENT TERMINAL
@@ -377,34 +475,16 @@
             </div>
         </section>
 
-        <footer class="py-10 text-center text-slate-800 text-[9px] tracking-[0.4em] uppercase">
+        <footer class="py-10 text-center text-white text-[9px] tracking-[0.4em] uppercase">
+            <div class="mb-4">
+                <a href="tel:3237546728" class="inline-flex items-center glass px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest border border-green-400 bg-green-400/20 hover:bg-green-400/30 transition-all">
+                    <i class="fas fa-phone mr-2 text-green-300"></i>
+                    <span class="text-green-200">(323) 754-6728</span>
+                </a>
+            </div>
             &copy; 2026 IT GURUZ | Powered by Ayurell
         </footer>
     </main>
-
-    <!-- Live Chat Widget -->
-    <div class="chat-widget">
-        <button onclick="toggleChat()" class="glass p-4 rounded-full shadow-lg hover:shadow-xl transition-all">
-            <i class="fas fa-comments text-blue-400 text-xl"></i>
-        </button>
-        <div id="chat-window" class="hidden glass rounded-2xl p-4 mb-4 w-80">
-            <div class="flex justify-between items-center mb-4">
-                <h4 class="font-bold text-white">Live Support</h4>
-                <button onclick="toggleChat()" class="text-slate-400 hover:text-white">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="bg-slate-900 rounded-xl p-3 h-40 mb-4 text-sm text-slate-400">
-                <p>Support agent: Hello! How can I help you today?</p>
-            </div>
-            <div class="flex gap-2">
-                <input type="text" placeholder="Type your message..." class="flex-1 p-2 bg-slate-900 border border-slate-700 rounded-lg text-white text-sm outline-none focus:border-blue-500">
-                <button class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
@@ -443,11 +523,6 @@
             camera.lookAt(scene.position);
             shapes.forEach(s => { s.rotation.x += 0.005; s.rotation.y += 0.005; });
             renderer.render(scene, camera);
-        }
-
-        function toggleChat() {
-            const chatWindow = document.getElementById('chat-window');
-            chatWindow.classList.toggle('hidden');
         }
 
         function toggleFAQ(element) {
