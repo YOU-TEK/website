@@ -3,91 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT GURUZ | Premium Technical Safety Net</title>
+    <title>IT GURUZ | Systems Active</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { margin: 0; overflow-x: hidden; background-color: #020617; scroll-behavior: smooth; }
-        #canvas-container { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            z-index: 1; 
-            width: 100%; 
-            height: 100vh; 
-            pointer-events: none; 
-        }
-        .glass { 
-            background: rgba(15, 23, 42, 0.6); 
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1); 
+        #canvas-container { position: fixed; top: 0; left: 0; z-index: 1; width: 100%; height: 100vh; pointer-events: none; }
+        .glass { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .square-btn {
+            background: linear-gradient(90deg, #006aff 0%, #00d4ff 100%);
+            box-shadow: 0 0 20px rgba(0, 106, 255, 0.4);
+            color: white !important;
         }
     </style>
 </head>
-<body class="text-slate-200 font-sans selection:bg-blue-500/30">
+<body class="text-slate-200 font-sans">
 
     <div id="canvas-container"></div>
 
-    <nav class="fixed top-0 w-full z-50 p-6 flex justify-between items-center backdrop-blur-sm">
-        <div class="text-2xl font-black tracking-tighter text-white uppercase italic">IT GURUZ</div>
-        <div class="flex items-center gap-2">
-            <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-            <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-slate-400">HB Division Active</span>
-        </div>
-    </nav>
-
     <main class="relative z-10">
-        <section class="flex flex-col items-center justify-center min-h-screen px-6 text-center">
-            <h1 class="text-6xl md:text-8xl font-black mb-8 tracking-tight text-white uppercase italic">
-                THE SAFETY <span class="text-blue-500">NET.</span>
-            </h1>
-            <p class="max-w-xl text-lg md:text-xl text-slate-400 mb-12 leading-relaxed italic font-mono">
-                Invisible infrastructure monitoring for Huntington Beach. <br>
-                Proactive security. Zero downtime. $150/month.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="#join" class="bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold hover:bg-blue-500 hover:scale-105 transition-all shadow-xl shadow-blue-900/20 text-center">
-                    Secure Your Business
-                </a>
+        <section class="flex flex-col items-center justify-center min-h-[50vh] pt-20 px-6 text-center">
+            <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tight text-white uppercase italic">IT GURUZ</h1>
+            <p class="text-blue-400 font-mono tracking-widest text-sm uppercase mb-10">Huntington Beach Safety Net</p>
+            <div class="flex gap-4">
+                <a href="#join" class="glass px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest border border-blue-500/30">Connect Terminal</a>
             </div>
         </section>
 
-        <section id="join" class="py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+        <section id="join" class="max-w-5xl mx-auto py-20 px-6 grid md:grid-cols-2 gap-10">
             
             <div class="glass p-10 rounded-[2.5rem]">
-                <h3 class="text-2xl font-bold mb-6 text-white uppercase italic tracking-widest">1. Intake Protocol</h3>
+                <h3 class="text-xl font-bold uppercase tracking-widest text-white mb-6">1. Intake Protocol</h3>
                 <form action="https://formspree.io/f/maqqqkna" method="POST" class="space-y-4">
-                    <input type="text" name="company" placeholder="Business Name" required class="w-full p-4 bg-slate-900/50 border border-slate-700 rounded-xl outline-none focus:border-blue-500 transition">
-                    <input type="email" name="email" placeholder="Contact Email" required class="w-full p-4 bg-slate-900/50 border border-slate-700 rounded-xl outline-none focus:border-blue-500 transition">
-                    <textarea name="message" rows="4" placeholder="IT infrastructure concerns..." required class="w-full p-4 bg-slate-900/50 border border-slate-700 rounded-xl outline-none focus:border-blue-500 transition"></textarea>
-                    <button type="submit" class="w-full py-5 bg-white/10 hover:bg-white/20 text-white font-bold uppercase text-xs tracking-widest rounded-xl transition">Submit Inquiry</button>
+                    <input type="text" name="company" placeholder="Business Name" required class="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl text-white outline-none focus:border-blue-500 transition-all">
+                    <input type="email" name="email" placeholder="Contact Email" required class="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl text-white outline-none focus:border-blue-500 transition-all">
+                    <textarea name="message" rows="3" placeholder="Infrastructure message..." required class="w-full p-4 bg-slate-900 border border-slate-700 rounded-xl text-white outline-none focus:border-blue-500 transition-all"></textarea>
+                    <button type="submit" class="w-full py-4 bg-slate-800 hover:bg-blue-600 text-white font-bold uppercase text-xs tracking-widest rounded-xl transition-all">Submit Inquiry</button>
                 </form>
             </div>
 
-            <div class="glass p-2 rounded-[2.5rem] shadow-2xl">
-                <div class="bg-slate-900/80 rounded-[2.3rem] p-10 text-center h-full flex flex-col justify-center">
-                    <span class="text-blue-400 font-bold text-xs uppercase tracking-[0.4em]">Secure Subscription</span>
-                    <div class="flex justify-center items-baseline gap-1 mt-6 mb-8">
-                        <span class="text-6xl font-black text-white">$150</span>
-                        <span class="text-slate-500 font-bold">/mo</span>
-                    </div>
+            <div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center text-center">
+                <h3 class="text-xl font-bold uppercase tracking-widest text-white mb-6">2. Secure Spot</h3>
+                <div class="p-8 bg-blue-500/5 rounded-3xl border border-blue-500/20 mb-6">
+                    <p class="text-5xl font-black text-white mb-2">$150<span class="text-sm text-slate-500">/mo</span></p>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-[0.3em] mb-8 font-bold">Founding Member Rate</p>
                     
-                    <ul class="text-left space-y-4 mb-10 text-sm text-slate-300 font-mono italic">
-                        <li>✅ Weekly Security Patches</li>
-                        <li>✅ Daily Backup Verification</li>
-                        <li>✅ Priority Support Line</li>
-                    </ul>
-                    
-                    <a href="https://square.link/u/rqxX8otB" target="_blank" class="block w-full bg-white text-black py-6 rounded-2xl font-black hover:bg-blue-500 hover:text-white transition-all text-center">
-                        OPEN PAYMENT TERMINAL
+                    <a href="https://square.link/u/rqxX8otB" target="_blank" class="square-btn block w-full py-6 rounded-2xl font-black uppercase tracking-widest text-lg text-center">
+                        PAYMENT TERMINAL
                     </a>
-                    <p class="mt-6 text-[10px] text-slate-500 uppercase tracking-widest font-bold italic">Powered by Ayurell Systems</p>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-[10px] text-slate-500 uppercase font-mono tracking-widest font-bold">System Online</span>
                 </div>
             </div>
         </section>
 
-        <footer class="py-20 text-center border-t border-slate-900">
-            <p class="text-[10px] text-slate-600 tracking-widest uppercase">© 2026 IT GURUZ | Systems Active</p>
+        <footer class="py-10 text-center text-slate-800 text-[9px] tracking-[0.4em] uppercase">
+            &copy; 2026 IT GURUZ | Powered by Ayurell
         </footer>
     </main>
 
@@ -105,7 +77,7 @@
 
             const geometry = new THREE.IcosahedronGeometry(1.2, 0);
             for(let i=0; i<15; i++) {
-                const material = new THREE.MeshNormalMaterial({ wireframe: true, transparent: true, opacity: 0.3 });
+                const material = new THREE.MeshNormalMaterial({ wireframe: true, transparent: true, opacity: 0.2 });
                 const shape = new THREE.Mesh(geometry, material);
                 shape.position.set((Math.random()-0.5)*20, (Math.random()-0.5)*20, (Math.random()-0.5)*15);
                 scene.add(shape);
@@ -124,15 +96,17 @@
             camera.position.x += (mouseX - camera.position.x) * 0.05;
             camera.position.y += (-mouseY - camera.position.y) * 0.05;
             camera.lookAt(scene.position);
-            shapes.forEach(s => { s.rotation.x += 0.01; s.rotation.y += 0.01; });
+            shapes.forEach(s => { s.rotation.x += 0.005; s.rotation.y += 0.005; });
             renderer.render(scene, camera);
         }
-        init();
+
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
+
+        init();
     </script>
 </body>
 </html>
