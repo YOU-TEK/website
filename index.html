@@ -57,18 +57,21 @@
             50% { filter: brightness(130%) blur(0.5px); text-shadow: 0 0 30px var(--magenta); }
         }
 
-        /* HIGH CONTRAST BUTTON STYLE */
         .cyber-button {
             background: linear-gradient(90deg, #ff00ff 0%, #7000ff 100%);
             color: white !important;
             border: 1px solid #ff00ff;
             box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
             text-shadow: 0 0 5px rgba(0,0,0,0.5);
+            display: inline-block;
+            text-align: center;
         }
         .cyber-button:hover {
             filter: brightness(1.2);
             box-shadow: 0 0 30px rgba(255, 0, 255, 0.6);
         }
+
+        .hidden { display: none; }
 
         @media (max-width: 768px) {
             .glow-text { font-size: 2.5rem; letter-spacing: 0.2em; }
@@ -110,43 +113,50 @@
             </div>
         </div>
 
-        <a href="#join" class="cyber-button inline-block px-10 py-4 rounded-lg font-black uppercase tracking-widest transition-all active:scale-95">
+        <a href="#join" class="cyber-button px-10 py-4 rounded-lg font-black uppercase tracking-widest transition-all active:scale-95">
             Secure a Founding Spot
         </a>
     </main>
 
     <section id="join" class="py-20 px-6 bg-slate-950 border-t border-purple-900/20">
-        <div class="max-w-lg mx-auto">
+        <div class="max-w-lg mx-auto" id="form-container">
             <h2 style="color: #ff00ff;" class="text-3xl font-bold mb-2 text-center uppercase tracking-widest">Client Intake Terminal</h2>
             <p class="text-center text-slate-500 text-[10px] mb-10 uppercase font-mono tracking-tighter">Initializing Secure Transmission Protocol</p>
             
-          <form action="https://formspree.io/f/maqqqkna" method="POST" class="space-y-6">
-    <input type="hidden" name="_next" value="https://itguruz.com/success.html">
-    
-    <input type="text" name="_gotcha" style="display:none">
+            <form id="cyber-form" action="https://formspree.io/f/maqqqkna" method="POST" class="space-y-6">
+                <div>
+                    <label style="color: #ff00ff;" class="block text-[10px] font-bold uppercase tracking-widest mb-2 opacity-70">Business Name</label>
+                    <input type="text" name="company" required placeholder="Enter Company Name" 
+                           class="w-full p-4 bg-slate-900 border border-slate-800 rounded-lg focus:border-magenta-500 text-white outline-none">
+                </div>
 
-    <div>
-        <label style="color: #ff00ff;" class="block text-[10px] font-bold uppercase tracking-widest mb-2 opacity-70">Business Name</label>
-        <input type="text" name="company" required placeholder="Enter Company Name" 
-               class="w-full p-4 bg-slate-900 border border-slate-800 rounded-lg focus:border-magenta-500 text-white outline-none transition-all">
-    </div>
+                <div>
+                    <label style="color: #ff00ff;" class="block text-[10px] font-bold uppercase tracking-widest mb-2 opacity-70">Your Email</label>
+                    <input type="email" name="email" required placeholder="name@business.com" 
+                           class="w-full p-4 bg-slate-900 border border-slate-800 rounded-lg focus:border-magenta-500 text-white outline-none">
+                </div>
 
-    <div>
-        <label style="color: #ff00ff;" class="block text-[10px] font-bold uppercase tracking-widest mb-2 opacity-70">Your Email</label>
-        <input type="email" name="email" required placeholder="name@business.com" 
-               class="w-full p-4 bg-slate-900 border border-slate-800 rounded-lg focus:border-magenta-500 text-white outline-none transition-all">
-    </div>
+                <div>
+                    <label style="color: #ff00ff;" class="block text-[10px] font-bold uppercase tracking-widest mb-2 opacity-70">Infrastructure Message</label>
+                    <textarea name="message" rows="4" required placeholder="Describe your current tech landscape..." 
+                              class="w-full p-4 bg-slate-900 border border-slate-800 rounded-lg focus:border-magenta-500 text-white outline-none"></textarea>
+                </div>
 
-    <div>
-        <label style="color: #ff00ff;" class="block text-[10px] font-bold uppercase tracking-widest mb-2 opacity-70">Infrastructure Message</label>
-        <textarea name="message" rows="4" required placeholder="Describe your current tech landscape..." 
-                  class="w-full p-4 bg-slate-900 border border-slate-800 rounded-lg focus:border-magenta-500 text-white outline-none transition-all"></textarea>
-    </div>
+                <button type="submit" id="submit-btn" class="cyber-button w-full py-4 font-black uppercase tracking-[0.2em] rounded-lg transition-all active:scale-95">
+                    Initialize Onboarding
+                </button>
+            </form>
 
-    <button type="submit" class="cyber-button w-full py-4 font-black uppercase tracking-[0.2em] rounded-lg transition-all active:scale-95">
-        Initialize Onboarding
-    </button>
-</form>
+            <div id="success-message" class="hidden text-center p-10 border-2 border-magenta-500 rounded-xl bg-slate-900/90 shadow-[0_0_30px_rgba(255,0,255,0.2)]">
+                <div class="mb-6 text-magenta-500">
+                    <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h2 class="text-3xl font-black text-white mb-2 uppercase tracking-tighter">Transmission Successful</h2>
+                <p class="mb-8 text-slate-400 text-sm font-mono uppercase">Identity Verified. Proceed to payment terminal to secure your spot.</p>
+                <a href="success.html" class="cyber-button w-full py-5 rounded-lg font-black uppercase tracking-widest">
+                    Open Payment Terminal
+                </a>
+            </div>
         </div>
     </section>
 
@@ -155,6 +165,39 @@
     </footer>
 
     <script>
+        // FORM SUBMISSION BYPASS
+        const form = document.getElementById('cyber-form');
+        const successMsg = document.getElementById('success-message');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            submitBtn.innerText = "TRANSMITTING...";
+            submitBtn.disabled = true;
+
+            const data = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    form.classList.add('hidden');
+                    successMsg.classList.remove('hidden');
+                    window.scrollTo({ top: document.getElementById('join').offsetTop, behavior: 'smooth' });
+                } else {
+                    alert("Transmission Error. Please check your connection.");
+                    submitBtn.innerText = "RE-INITIALIZE";
+                    submitBtn.disabled = false;
+                }
+            } catch (error) {
+                alert("System Error. Please try again.");
+                submitBtn.disabled = false;
+            }
+        };
+
+        // ANIMATED ASSETS
         (function() {
             const canvas = document.getElementById('favicon-canvas');
             const ctx = canvas.getContext('2d');
